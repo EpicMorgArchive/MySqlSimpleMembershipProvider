@@ -39,10 +39,7 @@ namespace MySql.Web.Security {
         /// <param name="server">The server.</param>
         /// <param name="port">The port.</param>
         public MySqlSecurityDbContext( string database, string userId, string password, string server = "localhost", uint port = 3306 )
-            : base( database, userId, password, server, port ) {
-            Database.SetInitializer( new CreateDatabaseIfNotExists<MySqlSecurityDbContext>() );
-            if ( !this.Database.Exists() ) this.Database.Initialize( true );
-        }
+            : base( database, userId, password, server, port ) {}
 
         /// <summary>
         ///     Get or set UserProfiles

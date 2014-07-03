@@ -27,7 +27,7 @@ namespace SimpleMembershipTest.Filters {
 
                 try {
                     using ( var context = SimpleMembershipTestDbContext.CreateContext() ) {
-                        if ( context.Database.Exists() == false ) {
+                        if ( !context.Database.Exists() ) {
                             // Create the SimpleMembership database without Entity Framework migration schema
                             ( (IObjectContextAdapter) context ).ObjectContext.CreateDatabase();
                         }
@@ -35,17 +35,17 @@ namespace SimpleMembershipTest.Filters {
 
                     MySqlWebSecurity.InitializeDatabaseConnection( "SimpleMembershipTestDbContext" );
 
-                    const string ADMIN_ROLES = "Administrators";
-                    const string ADMIN_USER = "admin";
+                    const string adminRoles = "Administrators";
+                    const string adminUser = "admin";
 
-                    if ( Roles.RoleExists( ADMIN_ROLES ) ) return;
-                    Roles.CreateRole( ADMIN_ROLES );
+                    if ( Roles.RoleExists( adminRoles ) ) return;
+                    Roles.CreateRole( adminRoles );
 
-                    if ( WebSecurity.UserExists( ADMIN_USER ) == false )
-                        WebSecurity.CreateUserAndAccount( ADMIN_USER, "password" );
+                    if ( WebSecurity.UserExists( adminUser ) == false )
+                        WebSecurity.CreateUserAndAccount( adminUser, "password" );
 
-                    if ( Roles.GetRolesForUser( ADMIN_USER ).Contains( ADMIN_ROLES ) == false )
-                        Roles.AddUserToRole( ADMIN_USER, ADMIN_ROLES );
+                    if ( Roles.GetRolesForUser( adminUser ).Contains( adminRoles ) == false )
+                        Roles.AddUserToRole( adminUser, adminRoles );
                 }
                 catch ( Exception ex ) {
                     throw new InvalidOperationException(
