@@ -1,56 +1,37 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
-using System.Data.Entity;
+namespace MySql.Web.Security {
+    internal class DatabaseConnectionInfo {
+        private string _connectionString;
+        private string _connectionStringName;
 
-namespace MySql.Web.Security
-{
-	internal class DatabaseConnectionInfo
-	{
-		private string _connectionStringName;
-		private string _connectionString;
+        public string ConnectionString {
+            get {
+                return this._connectionString;
+            }
+            set {
+                this._connectionString = value;
+                this.Type = ConnectionType.ConnectionString;
+            }
+        }
 
-		private enum ConnectionType
-		{
-			ConnectionStringName = 0,
-			ConnectionString = 1
-		}
+        public string ConnectionStringName {
+            get {
+                return this._connectionStringName;
+            }
+            set {
+                this._connectionStringName = value;
+                this.Type = ConnectionType.ConnectionStringName;
+            }
+        }
 
-		public string ConnectionString
-		{
-			get
-			{
-				return _connectionString;
-			}
-			set
-			{
-				_connectionString = value;
-				Type = ConnectionType.ConnectionString;
-			}
-		}
+        public string ProviderName { get; set; }
 
-		public string ConnectionStringName
-		{
-			get
-			{
-				return _connectionStringName;
-			}
-			set
-			{
-				_connectionStringName = value;
-				Type = ConnectionType.ConnectionStringName;
-			}
-		}
+        private ConnectionType Type { get; set; }
 
-		public string ProviderName
-		{
-			get;
-			set;
-		}
-
-		private ConnectionType Type
-		{
-			get;
-			set;
-		}
-	}
+        private enum ConnectionType {
+            ConnectionStringName = 0,
+            ConnectionString = 1
+        }
+    }
 }

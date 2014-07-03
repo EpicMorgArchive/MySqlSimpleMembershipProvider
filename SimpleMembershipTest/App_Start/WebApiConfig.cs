@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
-namespace SimpleMembershipTest
-{
-	public static class WebApiConfig
-	{
-		public static void Register(HttpConfiguration config)
-		{
-			config.Routes.MapHttpRoute(
-				name: "DefaultApi",
-				routeTemplate: "api/{controller}/{id}",
-				defaults: new
-				{
-					id = RouteParameter.Optional
-				}
-			);
+namespace SimpleMembershipTest {
+    public static class WebApiConfig {
+        public static void Register( HttpConfiguration config ) {
+            config.Routes.MapHttpRoute(
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new {
+                    id = RouteParameter.Optional
+                } );
 
-			config.EnableQuerySupport();
-		}
-	}
+            config.EnableQuerySupport();
+        }
+    }
 }

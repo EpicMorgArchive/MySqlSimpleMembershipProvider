@@ -1,34 +1,29 @@
 ﻿@model SimpleMembershipTest.Models.ChangePropertyModel
 @{
-	ViewBag.Title = "Manage Account";
+    this.ViewBag.Title = "Manage Account";
 }
 
 <hgroup class="title">
-	<h1>@ViewBag.Title.</h1>
+    <h1>@(this.ViewBag.Title).</h1>
 </hgroup>
 
-<p class="message-success">@ViewBag.StatusMessage</p>
+<p class="message-success">@(this.ViewBag.StatusMessage)</p>
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<p>You're logged in as <strong>@(this.User.Identity.Name)</strong>.</p>
 
-@Html.Partial("_ManagePartial", @Model)
+@(this.Html.Partial( "_ManagePartial", this.Model ))
 
-@if (ViewBag.HasLocalPassword)
-{
-	@Html.Partial("_ChangePasswordPartial", @Model)
-}
-else
-{ 
-	@Html.Partial("_SetPasswordPartial", @Model)
-}
+@(this.Html.Partial( string.Format( "_{0}PasswordPartial", ( this.ViewBag.HasLocalPassword ? "Change" : "Set" ) ), this.Model ))
 
 <section id="externalLogins">
-	@Html.Action("RemoveExternalLogins")
+    @(this.Html.Action( "RemoveExternalLogins" ))
 
-	<h3>Add an external login</h3>
-	@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    <h3>Add an external login</h3>
+    @(this.Html.Action( "ExternalLoginsList", new {
+          this.ViewBag.ReturnUrl
+      } ))
 </section>
 
 @section Scripts {
-	@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render( "~/bundles/jqueryval" )
 }

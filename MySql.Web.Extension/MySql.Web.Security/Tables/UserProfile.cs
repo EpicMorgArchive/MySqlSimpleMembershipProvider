@@ -19,45 +19,31 @@ CREATE TABLE [dbo].[UserProfile] (
 /*	Rev. Date	:	
 /**********************************************************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MySql.Web.Extension.Resources;
 
-namespace MySql.Web.Security
-{
-	/// <summary>
-	/// UserProfile Table Entity class
-	/// </summary>
-	[Table("UserProfile")]
-	public partial class UserProfile
-	{
-		/// <summary>
-		/// Gets or sets the user id.
-		/// </summary>
-		/// <value>The user id.</value>
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		[Display(Name = "UserProfile_UserId", ResourceType = typeof(MetadataResources))]
-		public int UserId
-		{
-			get;
-			set;
-		}
+namespace MySql.Web.Security {
+    /// <summary>
+    ///     UserProfile Table Entity class
+    /// </summary>
+    [Table( "UserProfile" )]
+    public class UserProfile {
+        /// <summary>
+        ///     Gets or sets the user id.
+        /// </summary>
+        /// <value>The user id.</value>
+        [Key]
+        [DatabaseGenerated( DatabaseGeneratedOption.Identity )]
+        [Display( Name = "UserProfile_UserId", ResourceType = typeof( MetadataResources ) )]
+        public int UserId { get; set; }
 
-		/// <summary>
-		/// Gets or sets the name of the user.
-		/// </summary>
-		/// <value>The name of the user.</value>
-		[Display(Name = "UserProfile_UserName", ResourceType = typeof(MetadataResources))]
-		[Required]
-		public string UserName
-		{
-			get;
-			set;
-		}
-	}
+        /// <summary>
+        ///     Gets or sets the name of the user.
+        /// </summary>
+        /// <value>The name of the user.</value>
+        [Display( Name = "UserProfile_UserName", ResourceType = typeof( MetadataResources ) )]
+        [Required]
+        public string UserName { get; set; }
+    }
 }
