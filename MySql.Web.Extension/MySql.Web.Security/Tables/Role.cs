@@ -1,23 +1,23 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.Role
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Thursday, April 11, 2013 10:36 AM
-/*	Purpose		:	webpages_Roles Table Entity class
+/*    Domain        :    MySql.Web.Security.Role
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Thursday, April 11, 2013 10:36 AM
+/*    Purpose        :    webpages_Roles Table Entity class
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 CREATE TABLE [dbo].[webpages_Roles] (
-	[RoleId]   INT            IDENTITY (1, 1) NOT NULL,
-	[RoleName] NVARCHAR (256) NOT NULL,
-	PRIMARY KEY CLUSTERED ([RoleId] ASC),
-	UNIQUE NONCLUSTERED ([RoleName] ASC)
+    [RoleId]   INT            IDENTITY (1, 1) NOT NULL,
+    [RoleName] NVARCHAR (256) NOT NULL,
+    PRIMARY KEY CLUSTERED ([RoleId] ASC),
+    UNIQUE NONCLUSTERED ([RoleName] ASC)
 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.ComponentModel.DataAnnotations;

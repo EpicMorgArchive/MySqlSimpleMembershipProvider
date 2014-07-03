@@ -1,20 +1,20 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
 /**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.MySqlSimpleMembershipProvider
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Friday, April 12, 2013 10:56 AM
-/*	Purpose		:	Provides support for website membership tasks, such as creating accounts, deleting accounts, 
- *					and managing passwords for MySql database.
+/*    Domain        :    MySql.Web.Security.MySqlSimpleMembershipProvider
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Friday, April 12, 2013 10:56 AM
+/*    Purpose        :    Provides support for website membership tasks, such as creating accounts, deleting accounts, 
+ *                    and managing passwords for MySql database.
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System;
@@ -74,12 +74,12 @@ namespace MySql.Web.Security {
             get {
                 //if (string.IsNullOrEmpty(ConfigUtil.MySqlSecurityInheritedContextType) == true)
                 //{
-                //	string nameOrConnectionString = ConnectionInfo.ConnectionString;
+                //    string nameOrConnectionString = ConnectionInfo.ConnectionString;
 
-                //	if (nameOrConnectionString.IsEmpty() == true)
-                //		nameOrConnectionString = ConnectionInfo.ConnectionStringName;
+                //    if (nameOrConnectionString.IsEmpty() == true)
+                //        nameOrConnectionString = ConnectionInfo.ConnectionStringName;
 
-                //	return new MySqlSecurityDbContext(nameOrConnectionString);
+                //    return new MySqlSecurityDbContext(nameOrConnectionString);
                 //}
                 //else
                 {
@@ -329,13 +329,10 @@ namespace MySql.Web.Security {
 
                 var expectedToken = membership.ConfirmationToken;
 
-                if ( String.Equals( accountConfirmationToken, expectedToken, StringComparison.Ordinal ) ) {
-                    membership.IsConfirmed = true;
+                if ( !String.Equals( accountConfirmationToken, expectedToken, StringComparison.Ordinal ) ) return false;
+                membership.IsConfirmed = true;
 
-                    return db.SaveChanges() > 0;
-                }
-
-                return false;
+                return db.SaveChanges() > 0;
             }
         }
 
@@ -621,10 +618,9 @@ namespace MySql.Web.Security {
                 // Note that token is case-sensitive
                 var oAuthToken = db.OAuthTokens.SingleOrDefault( x => x.Token == token );
 
-                if ( oAuthToken != null ) {
-                    db.OAuthTokens.Remove( oAuthToken );
-                    db.SaveChanges();
-                }
+                if ( oAuthToken == null ) return;
+                db.OAuthTokens.Remove( oAuthToken );
+                db.SaveChanges();
             }
         }
 
@@ -732,25 +728,22 @@ namespace MySql.Web.Security {
                 var membership =
                     db.Memberships.SingleOrDefault( x => x.UserId == userId && x.PasswordVerificationTokenExpirationDate > DateTime.Now );
 
-                if ( membership != null ) {
-                    var token = membership.PasswordVerificationToken;
-                    if ( token.IsEmpty() ) {
-                        token = GenerateToken();
+                if ( membership == null ) return string.Empty;
+                var token = membership.PasswordVerificationToken;
+                if ( !token.IsEmpty() ) return token;
+                token = GenerateToken();
 
-                        var newMembership = db.Memberships.SingleOrDefault( x => x.UserId == userId );
+                var newMembership = db.Memberships.SingleOrDefault( x => x.UserId == userId );
 
-                        if ( newMembership != null ) {
-                            newMembership.PasswordVerificationToken = token;
-                            newMembership.PasswordVerificationTokenExpirationDate = DateTime.Now.AddMinutes(
-                                tokenExpirationInMinutesFromNow );
-                            db.SaveChanges();
-                        }
-                        else
-                            throw new ProviderException( Resources.Security_DbFailure );
-                    }
-                    return token;
+                if ( newMembership != null ) {
+                    newMembership.PasswordVerificationToken = token;
+                    newMembership.PasswordVerificationTokenExpirationDate = DateTime.Now.AddMinutes(
+                        tokenExpirationInMinutesFromNow );
+                    db.SaveChanges();
                 }
-                return string.Empty;
+                else
+                    throw new ProviderException( Resources.Security_DbFailure );
+                return token;
             }
         }
 
@@ -1156,15 +1149,14 @@ namespace MySql.Web.Security {
             config.Remove( "passwordStrengthRegularExpression" );
             config.Remove( "hashAlgorithmType" );
 
-            if ( config.Count > 0 ) {
-                var attribUnrecognized = config.GetKey( 0 );
-                if ( !String.IsNullOrEmpty( attribUnrecognized ) ) {
-                    throw new ProviderException(
-                        String.Format(
-                            CultureInfo.CurrentCulture,
-                            Resources.SimpleMembership_ProviderUnrecognizedAttribute,
-                            attribUnrecognized ) );
-                }
+            if ( config.Count <= 0 ) return;
+            var attribUnrecognized = config.GetKey( 0 );
+            if ( !String.IsNullOrEmpty( attribUnrecognized ) ) {
+                throw new ProviderException(
+                    String.Format(
+                        CultureInfo.CurrentCulture,
+                        Resources.SimpleMembership_ProviderUnrecognizedAttribute,
+                        attribUnrecognized ) );
             }
         }
 
@@ -1248,24 +1240,21 @@ namespace MySql.Web.Security {
                     db.Memberships.SingleOrDefault(
                         x => x.PasswordVerificationToken == token && x.PasswordVerificationTokenExpirationDate > DateTime.Now );
 
-                if ( membership != null ) {
-                    var userId = membership.UserId;
-                    var success = SetPassword( db, userId, newPassword );
-                    if ( success ) {
-                        // Clear the Token on success
-                        var newMembership = db.Memberships.SingleOrDefault( x => x.UserId == userId );
+                if ( membership == null ) return false;
+                var userId = membership.UserId;
+                var success = SetPassword( db, userId, newPassword );
+                if ( !success ) return success;
+                // Clear the Token on success
+                var newMembership = db.Memberships.SingleOrDefault( x => x.UserId == userId );
 
-                        if ( newMembership != null ) {
-                            newMembership.PasswordVerificationToken = null;
-                            newMembership.PasswordVerificationTokenExpirationDate = null;
-                            db.SaveChanges();
-                        }
-                        else
-                            throw new ProviderException( Resources.Security_DbFailure );
-                    }
-                    return success;
+                if ( newMembership != null ) {
+                    newMembership.PasswordVerificationToken = null;
+                    newMembership.PasswordVerificationTokenExpirationDate = null;
+                    db.SaveChanges();
                 }
-                return false;
+                else
+                    throw new ProviderException( Resources.Security_DbFailure );
+                return success;
             }
         }
 
@@ -1503,11 +1492,10 @@ namespace MySql.Web.Security {
                     foreach ( var key in values.Keys ) {
                         var pi = userProfileExType.GetProperty( key );
 
-                        if ( pi != null && pi.CanWrite ) {
-                            var value = values[ key ] ?? DBNull.Value;
+                        if ( pi == null || !pi.CanWrite ) continue;
+                        var value = values[ key ] ?? DBNull.Value;
 
-                            pi.SetValue( userProfileEx, value );
-                        }
+                        pi.SetValue( userProfileEx, value );
                     }
 
                     var userProfileExDbSet = this.EntryBy( db, userProfileExType.FullName ); // get DbSet<UserProfile inherited class>
@@ -1594,14 +1582,12 @@ namespace MySql.Web.Security {
 
             var result = db.Memberships.Count( x => x.UserId == userId && x.IsConfirmed == true );
 
-            if ( result == 0 ) {
-                if ( throwException ) {
-                    throw new InvalidOperationException(
-                        String.Format( CultureInfo.CurrentCulture, Resources.Security_NoAccountFound, userName ) );
-                }
-                return -1;
+            if ( result != 0 ) return userId;
+            if ( throwException ) {
+                throw new InvalidOperationException(
+                    String.Format( CultureInfo.CurrentCulture, Resources.Security_NoAccountFound, userName ) );
             }
-            return userId;
+            return -1;
         }
     }
 }

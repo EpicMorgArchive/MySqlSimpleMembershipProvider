@@ -1,22 +1,22 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.OAuthToken
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Friday, April 12, 2013 12:11:20 AM
-/*	Purpose		:	webpages_OAuthToken Table Entity class
+/*    Domain        :    MySql.Web.Security.OAuthToken
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Friday, April 12, 2013 12:11:20 AM
+/*    Purpose        :    webpages_OAuthToken Table Entity class
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 CREATE TABLE [dbo].[webpages_OAuthToken] (
-	[Token]		nvarchar(100) NOT NULL, 
-	[Secret]	nvarchar(100) NOT NULL, 
-	PRIMARY KEY (Token)
+    [Token]        nvarchar(100) NOT NULL, 
+    [Secret]    nvarchar(100) NOT NULL, 
+    PRIMARY KEY (Token)
 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.ComponentModel.DataAnnotations;

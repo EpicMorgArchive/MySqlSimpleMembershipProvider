@@ -7,25 +7,25 @@ namespace SimpleMembershipTest {
             // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
             //OAuthWebSecurity.RegisterMicrosoftClient(
-            //	clientId: "",
-            //	clientSecret: ""
+            //    clientId: "",
+            //    clientSecret: ""
             //);
 
             // https://dev.twitter.com/apps
             //OAuthWebSecurity.RegisterTwitterClient(
-            //	consumerKey: "",
-            //	consumerSecret: ""
+            //    consumerKey: "",
+            //    consumerSecret: ""
             //);
 
             // https://developers.facebook.com/apps
             //OAuthWebSecurity.RegisterFacebookClient(
-            //	appId: "",
-            //	appSecret: ""
-            //);			
+            //    appId: "",
+            //    appSecret: ""
+            //);            
 
             //OAuthWebSecurity.RegisterLinkedInClient(
-            //	consumerKey: "",
-            //	consumerSecret: "",
+            //    consumerKey: "",
+            //    consumerSecret: "",
             //);
 
             OAuthWebSecurity.RegisterGoogleClient();

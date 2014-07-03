@@ -1,23 +1,23 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.OAuthMembership
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Thursday, April 11, 2013 10:36 AM
-/*	Purpose		:	webpages_OAuthMembership Table Entity class
+/*    Domain        :    MySql.Web.Security.OAuthMembership
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Thursday, April 11, 2013 10:36 AM
+/*    Purpose        :    webpages_OAuthMembership Table Entity class
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 CREATE TABLE [dbo].[webpages_OAuthMembership] (
-	[Provider]       NVARCHAR (30)  NOT NULL,
-	[ProviderUserId] NVARCHAR (100) NOT NULL,
-	[UserId]         INT            NOT NULL,
-	PRIMARY KEY CLUSTERED ([Provider] ASC, [ProviderUserId] ASC)
+    [Provider]       NVARCHAR (30)  NOT NULL,
+    [ProviderUserId] NVARCHAR (100) NOT NULL,
+    [UserId]         INT            NOT NULL,
+    PRIMARY KEY CLUSTERED ([Provider] ASC, [ProviderUserId] ASC)
 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.ComponentModel.DataAnnotations;

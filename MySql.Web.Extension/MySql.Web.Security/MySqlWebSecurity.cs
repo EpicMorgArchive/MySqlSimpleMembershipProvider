@@ -1,20 +1,20 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
 /**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.MySqlWebSecurity
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Friday, April 12, 2013 10:57 AM
-/*	Purpose		:	Provides security and authentication features for ASP.NET Web Pages applications with MySql, including the ability to create user accounts, 
- *					log users in and out, reset or change passwords, and perform related tasks.
+/*    Domain        :    MySql.Web.Security.MySqlWebSecurity
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Friday, April 12, 2013 10:57 AM
+/*    Purpose        :    Provides security and authentication features for ASP.NET Web Pages applications with MySql, including the ability to create user accounts, 
+ *                    log users in and out, reset or change passwords, and perform related tasks.
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System;

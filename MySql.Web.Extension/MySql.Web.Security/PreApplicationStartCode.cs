@@ -58,35 +58,34 @@ namespace MySql.Web.Security {
 
         //private static void OnConnectionOpened(object sender, ConnectionEventArgs e)
         //{
-        //	// Register all open connections for disposing at the end of the request
-        //	HttpContext httpContext = HttpContext.Current;
-        //	if (httpContext != null)
-        //	{
-        //		HttpContextWrapper httpContextWrapper = new HttpContextWrapper(httpContext);
-        //		httpContextWrapper.RegisterForDispose(e.Connection);
-        //	}
+        //    // Register all open connections for disposing at the end of the request
+        //    HttpContext httpContext = HttpContext.Current;
+        //    if (httpContext != null)
+        //    {
+        //        HttpContextWrapper httpContextWrapper = new HttpContextWrapper(httpContext);
+        //        httpContextWrapper.RegisterForDispose(e.Connection);
+        //    }
         //}
 
         private static void SetUpFormsAuthentication() {
-            if ( ConfigUtil.MySqlSimpleMembershipEnabled ) {
-                var configurationData = new NameValueCollection();
+            if ( !ConfigUtil.MySqlSimpleMembershipEnabled ) return;
+            var configurationData = new NameValueCollection();
 
-                var appSettingsLoginUrl = ConfigurationManager.AppSettings[ FormsAuthenticationSettings.LoginUrlKey ];
-                if ( appSettingsLoginUrl != null ) {
-                    // Allow use of <add key="loginUrl" value="~/MyPath/LogOn" /> as a shortcut to specify
-                    // a custom log in url
-                    configurationData[ LoginUrlKey ] = appSettingsLoginUrl;
-                }
-                else if ( !ConfigUtil.ShouldPreserveLoginUrl() ) {
-                    // Otherwise, use the default login url, but only if PreserveLoginUrl != true
-                    // If PreserveLoginUrl == true, we do not want to override FormsAuthentication's default
-                    // behavior because trying to evaluate FormsAuthentication.LoginUrl at this point in a
-                    // PreAppStart method would cause app-relative URLs to be evaluated incorrectly.
-                    configurationData[ LoginUrlKey ] = FormsAuthenticationSettings.DefaultLoginUrl;
-                }
-
-                FormsAuthentication.EnableFormsAuthentication( configurationData );
+            var appSettingsLoginUrl = ConfigurationManager.AppSettings[ FormsAuthenticationSettings.LoginUrlKey ];
+            if ( appSettingsLoginUrl != null ) {
+                // Allow use of <add key="loginUrl" value="~/MyPath/LogOn" /> as a shortcut to specify
+                // a custom log in url
+                configurationData[ LoginUrlKey ] = appSettingsLoginUrl;
             }
+            else if ( !ConfigUtil.ShouldPreserveLoginUrl() ) {
+                // Otherwise, use the default login url, but only if PreserveLoginUrl != true
+                // If PreserveLoginUrl == true, we do not want to override FormsAuthentication's default
+                // behavior because trying to evaluate FormsAuthentication.LoginUrl at this point in a
+                // PreAppStart method would cause app-relative URLs to be evaluated incorrectly.
+                configurationData[ LoginUrlKey ] = FormsAuthenticationSettings.DefaultLoginUrl;
+            }
+
+            FormsAuthentication.EnableFormsAuthentication( configurationData );
         }
     }
 }

@@ -1,22 +1,22 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.UserProfile
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Thursday, April 11, 2013 10:44 AM
-/*	Purpose		:	UserProfile Table Entity class
+/*    Domain        :    MySql.Web.Security.UserProfile
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Thursday, April 11, 2013 10:44 AM
+/*    Purpose        :    UserProfile Table Entity class
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 CREATE TABLE [dbo].[UserProfile] (
-	[UserId]   INT            IDENTITY (1, 1) NOT NULL,
-	[UserName] NVARCHAR (MAX) NULL,
-	PRIMARY KEY CLUSTERED ([UserId] ASC)
+    [UserId]   INT            IDENTITY (1, 1) NOT NULL,
+    [UserName] NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.ComponentModel.DataAnnotations;

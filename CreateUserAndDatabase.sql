@@ -1,7 +1,7 @@
 grant all privileges on 
-	SimpleMembershipTest.* to 
-	'dev'@'%' identified by 
-	'thePassword' with grant option;
+    SimpleMembershipTest.* to 
+    'dev'@'%' identified by 
+    'thePassword' with grant option;
 
 flush privileges;
 
@@ -27,9 +27,9 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql> grant all privileges on
-	->  SimpleMembershipTest.* to
-	->  'dev'@'%' identified by
-	->  'thePassword' with grant option;
+    ->  SimpleMembershipTest.* to
+    ->  'dev'@'%' identified by
+    ->  'thePassword' with grant option;
 Query OK, 0 rows affected (0.00 sec)
 
 mysql>

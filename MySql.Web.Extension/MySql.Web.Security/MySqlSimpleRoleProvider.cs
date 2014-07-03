@@ -1,19 +1,19 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.txt in the project root for license information.
 
 /**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.MySqlSimpleRoleProvider
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Friday, April 12, 2013 10:56 AM
-/*	Purpose		:	Defines the contract that ASP.NET implements to provide role-management services using custom role providers for MySql database.
+/*    Domain        :    MySql.Web.Security.MySqlSimpleRoleProvider
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Friday, April 12, 2013 10:56 AM
+/*    Purpose        :    Defines the contract that ASP.NET implements to provide role-management services using custom role providers for MySql database.
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System;
@@ -56,12 +56,12 @@ namespace MySql.Web.Security {
             get {
                 //if (string.IsNullOrEmpty(ConfigUtil.MySqlSecurityInheritedContextType) == true)
                 //{
-                //	string nameOrConnectionString = ConnectionInfo.ConnectionString;
+                //    string nameOrConnectionString = ConnectionInfo.ConnectionString;
 
-                //	if (nameOrConnectionString.IsEmpty() == true)
-                //		nameOrConnectionString = ConnectionInfo.ConnectionStringName;
+                //    if (nameOrConnectionString.IsEmpty() == true)
+                //        nameOrConnectionString = ConnectionInfo.ConnectionStringName;
 
-                //	return new MySqlSecurityDbContext(nameOrConnectionString);
+                //    return new MySqlSecurityDbContext(nameOrConnectionString);
                 //}
                 //else
                 {

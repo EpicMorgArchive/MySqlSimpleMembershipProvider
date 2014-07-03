@@ -1,18 +1,18 @@
 /**********************************************************************************************************************/
-/*	Domain		:	MySql.Data.MySqlClient.DropCreateMySqlDatabaseAlways`1
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Wednesday, April 10, 2013 10:23 AM
-/*	Purpose		:	An implementation of IDatabaseInitializer<TContext> that will recreate and optionally re-seed the database with data only if the database does not exist. 
- *					To seed the database, create a derived class and override the Seed method.
+/*    Domain        :    MySql.Data.MySqlClient.DropCreateMySqlDatabaseAlways`1
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Wednesday, April 10, 2013 10:23 AM
+/*    Purpose        :    An implementation of IDatabaseInitializer<TContext> that will recreate and optionally re-seed the database with data only if the database does not exist. 
+ *                    To seed the database, create a derived class and override the Seed method.
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.Data.Entity;

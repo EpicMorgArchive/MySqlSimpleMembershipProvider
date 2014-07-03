@@ -1,17 +1,17 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.MySqlSecurityDbContext
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Wednesday, April 10, 2013 10:28 AM
-/*	Purpose		:	Provide Database context with MySql database for security.
+/*    Domain        :    MySql.Web.Security.MySqlSecurityDbContext
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Wednesday, April 10, 2013 10:28 AM
+/*    Purpose        :    Provide Database context with MySql database for security.
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.Data.Entity;

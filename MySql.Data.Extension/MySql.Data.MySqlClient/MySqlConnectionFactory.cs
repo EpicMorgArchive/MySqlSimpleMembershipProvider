@@ -1,17 +1,17 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Data.MySqlClient.MySqlConnectionFactory
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Friday, December 21, 2012 2:43 PM
-/*	Purpose		:	Instances of this class are used to create DbConnection objects for SQL Server based on a given database name or connection string
+/*    Domain        :    MySql.Data.MySqlClient.MySqlConnectionFactory
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Friday, December 21, 2012 2:43 PM
+/*    Purpose        :    Instances of this class are used to create DbConnection objects for SQL Server based on a given database name or connection string
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System;

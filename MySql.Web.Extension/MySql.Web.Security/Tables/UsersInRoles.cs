@@ -1,24 +1,24 @@
 ﻿/**********************************************************************************************************************/
-/*	Domain		:	MySql.Web.Security.UsersInRoles
-/*	Creator		:	KIM-KIWON\xyz37(Kim Ki Won)
-/*	Create		:	Thursday, April 11, 2013 10:36 AM
-/*	Purpose		:	webpages_UsersInRoles Table Entity class
+/*    Domain        :    MySql.Web.Security.UsersInRoles
+/*    Creator        :    KIM-KIWON\xyz37(Kim Ki Won)
+/*    Create        :    Thursday, April 11, 2013 10:36 AM
+/*    Purpose        :    webpages_UsersInRoles Table Entity class
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Modifier	:	
-/*	Update		:	
-/*	Changes		:	
+/*    Modifier    :    
+/*    Update        :    
+/*    Changes        :    
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Comment		:	
+/*    Comment        :    
 CREATE TABLE [dbo].[webpages_UsersInRoles] (
-	[UserId] INT NOT NULL,
-	[RoleId] INT NOT NULL,
-	PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
-	CONSTRAINT [fk_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[UserProfile] ([UserId]),
-	CONSTRAINT [fk_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[webpages_Roles] ([RoleId])
+    [UserId] INT NOT NULL,
+    [RoleId] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
+    CONSTRAINT [fk_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[UserProfile] ([UserId]),
+    CONSTRAINT [fk_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[webpages_Roles] ([RoleId])
 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*	Reviewer	:	Kim Ki Won
-/*	Rev. Date	:	
+/*    Reviewer    :    Kim Ki Won
+/*    Rev. Date    :    
 /**********************************************************************************************************************/
 
 using System.ComponentModel.DataAnnotations;
